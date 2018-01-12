@@ -124,6 +124,18 @@ function collectStar (player, star) {
     score += 10;
     scoreText.text = 'Score: ' + score;
 }
+	game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+	game.input.onDown.add(gofull.this);
+
+function gofull() {
+	if (game.scale.isFullScreen) {
+		game.scale.stopFullScreen();
+	}
+	else {
+		game.scale.startFullScreen(false);
+	}
+	
+	
 </script>
 
 </body>
