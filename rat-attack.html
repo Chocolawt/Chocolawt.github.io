@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+    
+<!-- Mirrored from phaser.io/examples/v2/create/rat-attack by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 01:49:48 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Phaser - Examples - Create - Rat Attack</title>
+        <meta name="author" content="Photon Storm - photonstorm.com" />
+        <meta name="description" content="Phaser: The fun, fast and free HTML5 Game Framework" />
+        <meta name="keywords" content="phaser, html5, games, framework, library, canvas, webgl, animation, sprites, physics, audio, collision" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="../../../favicon.ico" />
+        <link rel="stylesheet" href="../../../css/phaser.css" type="text/css" media="all" />
+        <link rel="stylesheet" href="../../../css/prettify.css" type="text/css" />
+        <link rel="stylesheet" href="../../../css/octicons.css" type="text/css" />
+        <link rel="stylesheet" href="../../../css/carbon.css" type="text/css" />
+        <link rel="stylesheet" href="../../../css/newsletter.css" type="text/css" />
+        <!--[if lt IE 9]><link rel="stylesheet" href="https://phaser.io/css/wtf-ie.css" type="text/css" media="all" /><![endif]-->
+
+        <link rel="pingback" href="../../../../jquery.com/xmlrpc.php" />
+        <script type="text/javascript" src="../../../js/prettify.js"></script>
+        <script type="text/javascript" src="../../../js/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript" src="../../../js/jquery.main.js"></script>
+        <script type="text/javascript" src="../../../js/newsletter.js"></script>
+        <script src="../../../../use.typekit.net/fmc0gtt.js"></script>
+        <script>try{Typekit.load();}catch(e){}</script>
+        <!--[if IE]><script type="text/javascript" src="https://phaser.io/js/ie.js"></script><![endif]-->
+        <script type="text/javascript"  src="https://phaser.io/js/require.js"></script>
+        <script type="text/javascript"  src="https://phaser.io/js/ace/ace.js"></script>
+        <script type="text/javascript"  src="https://phaser.io/js/editors/common.js"></script>
+        <script type="text/javascript"  src="https://phaser.io/js/editors/sublime-nosave.js"></script>
+
+    </head>
+    <body class="example-page">
+        <div id="wrapper">
+            <div class="container">
+
+                
+                    <header id="header" class="headerExample">
+                    <strong class="logo"><a href="../../../index.html">Home</a></strong>
+                    <div class="toggle-slide">
+                        <div class="holder">
+                        <nav class="navigation">
+                            <ul>
+                                  <li><a href="../../../news.html">News</a></li>
+
+                                  <li><a href="../../../learn.html">Learn</a></li>
+
+                                  <li><a href="../../../download.html">Download</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="holder">
+                        <nav class="navigation">
+                            <ul>
+                                  <li class="active"><a href="../../../examples.html">Examples</a></li>
+
+                                  <li><a href="../../../community.html">Community</a></li>
+
+                                  <li><a href="../../../shop.html">Plugins</a></li>
+
+                            </ul>
+                        </nav>
+                    </div>
+                    </div>
+                </header>
+
+                
+                <section id="phaser-example-area" class="featured-game">
+                    <a name="gv"></a>
+                    <div class="game-view"><iframe seamless="seamless" scrolling="no" id="demo" src="http://examples.phaser.io/embed.php?f=create/rat+attack.js" width="800" height="600" allowfullscreen="true"></iframe></div>
+
+                    <div class="controllers">
+<!--                         <div class="holder">
+                            <ul class="buttons">
+                                <li class="btn-pause" id="ide-pause"><a href="#gv"><img src="https://phaser.io/images/editors/btn-pause.png" alt="pause"></a></li>
+                                <li class="btn-mute" id="ide-mute"><a href="#gv"><img src="https://phaser.io/images/editors/btn-mute.png" alt="mute"></a></li>
+                                <li class="btn-reset" id="ide-reset"><a href="#gv"><img src="https://phaser.io/images/editors/btn-reset.png" alt="reset"></a></li>
+                            </ul>
+                        </div>
+ -->                    </div>
+
+                </section>
+
+                
+                
+                <div id="main">
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <aside id="sidebar">
+
+                    <script async type="text/javascript" src="../../../../cdn.carbonads.com/carbon779c.js?zoneid=1673&amp;serve=C6AILKT&amp;placement=phaserio" id="_carbonads_js"></script>
+
+                    <nav class="sidenav catagories black">
+                        <div class="head">
+                            <a href="../../../examples.html" class="opener">Categories</a>
+                        </div>
+                        <ul>
+
+                            <li>
+                                <a href="../../../examples.html">
+                                    <i class="icon icon1">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>All</span>
+                                        <span class="counter">(<span class="number black">685</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/animation.html">
+                                    <i class="icon icon2">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Animation</span>
+                                        <span class="counter">(<span class="number black">18</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/arcade-physics.html">
+                                    <i class="icon icon3">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Arcade Physics</span>
+                                        <span class="counter">(<span class="number black">50</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/audio.html">
+                                    <i class="icon icon9">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Audio</span>
+                                        <span class="counter">(<span class="number black">13</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/basics.html">
+                                    <i class="icon icon5">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Basics</span>
+                                        <span class="counter">(<span class="number black">7</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/bitmapdata.html">
+                                    <i class="icon icon7">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>BitmapData</span>
+                                        <span class="counter">(<span class="number black">25</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/box2d.html">
+                                    <i class="icon icon3">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Box2D</span>
+                                        <span class="counter">(<span class="number black">40</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/buttons.html">
+                                    <i class="icon icon11">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Buttons</span>
+                                        <span class="counter">(<span class="number black">8</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/camera.html">
+                                    <i class="icon icon2">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Camera</span>
+                                        <span class="counter">(<span class="number black">14</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li class="active">
+                            
+                                <a href="../category/create.html">
+                                    <i class="icon icon9">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Create</span>
+                                        <span class="counter">(<span class="number black">6</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/debug.html">
+                                    <i class="icon icon5">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Debug</span>
+                                        <span class="counter">(<span class="number black">6</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/demoscene.html">
+                                    <i class="icon icon9">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Demoscene</span>
+                                        <span class="counter">(<span class="number black">18</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/display.html">
+                                    <i class="icon icon7">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Display</span>
+                                        <span class="counter">(<span class="number black">30</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/filters.html">
+                                    <i class="icon icon4">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Filters</span>
+                                        <span class="counter">(<span class="number black">36</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/games.html">
+                                    <i class="icon icon13">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Games</span>
+                                        <span class="counter">(<span class="number black">9</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/geometry.html">
+                                    <i class="icon icon6">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Geometry</span>
+                                        <span class="counter">(<span class="number black">21</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/groups.html">
+                                    <i class="icon icon8">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Groups</span>
+                                        <span class="counter">(<span class="number black">34</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/input.html">
+                                    <i class="icon icon10">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Input</span>
+                                        <span class="counter">(<span class="number black">50</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/loader.html">
+                                    <i class="icon icon11">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Loader</span>
+                                        <span class="counter">(<span class="number black">15</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/misc.html">
+                                    <i class="icon icon12">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Misc</span>
+                                        <span class="counter">(<span class="number black">8</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/ninja-physics.html">
+                                    <i class="icon icon3">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Ninja Physics</span>
+                                        <span class="counter">(<span class="number black">5</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/p2-physics.html">
+                                    <i class="icon icon3">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>P2 Physics</span>
+                                        <span class="counter">(<span class="number black">40</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/particles.html">
+                                    <i class="icon icon4">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Particles</span>
+                                        <span class="counter">(<span class="number black">21</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/particlestorm.html">
+                                    <i class="icon icon4">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Particle Storm</span>
+                                        <span class="counter">(<span class="number black">36</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/sprites.html">
+                                    <i class="icon icon13">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Sprites</span>
+                                        <span class="counter">(<span class="number black">38</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/text.html">
+                                    <i class="icon icon12">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Text</span>
+                                        <span class="counter">(<span class="number black">42</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/tile-sprites.html">
+                                    <i class="icon icon11">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Tile Sprites</span>
+                                        <span class="counter">(<span class="number black">7</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/tilemaps.html">
+                                    <i class="icon icon13">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Tilemaps</span>
+                                        <span class="counter">(<span class="number black">22</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/time.html">
+                                    <i class="icon icon7">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Time</span>
+                                        <span class="counter">(<span class="number black">9</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/tweens.html">
+                                    <i class="icon icon3">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Tweens</span>
+                                        <span class="counter">(<span class="number black">23</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/video.html">
+                                    <i class="icon icon2">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Video</span>
+                                        <span class="counter">(<span class="number black">10</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/virtualjoystick.html">
+                                    <i class="icon icon10">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Virtual Joystick</span>
+                                        <span class="counter">(<span class="number black">14</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/weapon.html">
+                                    <i class="icon icon9">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>Weapon</span>
+                                        <span class="counter">(<span class="number black">7</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                                                        <li>
+                            
+                                <a href="../category/world.html">
+                                    <i class="icon icon8">&nbsp;</i>
+                                    <div class="textbox">
+                                        <span>World</span>
+                                        <span class="counter">(<span class="number black">3</span>)</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                        
+                        </ul>
+                    </nav>
+                    <div class="patreon" style="width: 300px; padding-top: 12px; text-align: center">
+                    <a class="github-button" href="../../../../github.com/photonstorm/phaser.html" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star photonstorm/phaser on GitHub">Star</a>
+                    <a class="github-button" href="https://github.com/photonstorm/phaser/subscription" data-icon="octicon-eye" data-size="large" data-show-count="true" aria-label="Watch photonstorm/phaser on GitHub">Watch</a>
+                    </div>
+
+                    
+                        <div class="shopsidebar">
+    <a href="../../../interphase/1.html"><img src="../../../images/shop/books/interphase1/logo.jpg" width="300" height="320" title="Interphase Book" /></a><br />
+    <a href="../../../interphase/1.html">400 pages of detailed tutorials<br />with full source and graphics</a>
+</div>
+
+                    
+                    <p style="margin-bottom: 32px; background: black; color: white; width: 284px; padding: 8px; text-align: center">Help support the future of Phaser via <a href="../../../../www.patreon.com/photonstorm.html" style="color: #45a8fc">Patreon</a>, or making a one-off <a href="../../../community/donate.html" style="color: #45a8fc">donation</a>.</p>
+
+                    
+                        <iframe src="../../../../madmimi.com/signups/163665/iframe.html" scrolling="no" frameborder="0" height="314" style="max-width: 300px; width: 100%;"></iframe>
+
+                    
+                    <div style="width: 300px; padding-top: 0px; font-size: 18px; text-align: center">
+                        <a href="../../../../academy.zenva.com/product/the-complete-mobile-game-development-course-platinum-edition/index95a9.html?a=13"><img src="../../../images/zenva2.png" width="300" height="169" alt="Zenva" title="Learn Phaser video course" /></a>
+                        </div>
+                </aside>
+                
+                        </div>
+                        <div class="col-sm-9">
+                            <div id="content">
+
+                            
+    <script type="text/javascript">
+
+    IDE_REMOTE = '//examples.phaser.io';
+    IDE_SRC = 'http://examples.phaser.io/embed.php?f=create/rat+attack.js';
+    IDE_EXAMPLES = 'http://examples.phaser.io/embed.php';
+    IDE_NULL = 'http://examples.phaser.io/null.html';
+    IDE_DIMENSIONS = "width=800,height=600,scrollbars=no";
+    IDE_SAVE_URL = "https://phaser.io/examples/v2/save//rat-attack";
+    IDE_SAVE_DATA = { "category": "", "file": "rat-attack", "phaser": "", "code": "" };
+
+    </script>
+
+    <h2>Rat Attack</h2>
+
+    
+    <div class="sublime">
+
+    <ul class="generic-buttons">
+      <li><a href="http://examples.phaser.io/embed.php?f=create/rat+attack.js" class="btn"><span class="octicon32 octicon-device-mobile" title="Open Example in Mobile View"></span></a></li>
+      <li><a href="#comments" class="btn"><span class="octicon32 octicon-comment-discussion" title="Comment"></span></a></li>
+      <li><a href="#gv" id="ide-refresh" class="btn"><span class="octicon32 octicon-sync" title="Reload Example"></span></a></li>
+      <li><a href="#download" id="ide-download" class="btn"><span class="octicon32 octicon-cloud-download" title="Download Example"></span></a></li>
+      <li><a id="ide-expand" class="btn"><span class="octicon32 octicon-mirror" title="Hide side-nav and expand editor"></span></a></li>
+      <li><a href="#gv" id="ide-pop" class="btn"><span class="octicon32 octicon-screen-full" title="Toggle Example in new Window"></span></a></li>
+    </ul>
+
+    <pre id="editor">
+
+/*
+ *    Please wait, loading source from GitHub ...
+ *
+ *                       _____
+ *                    __/_ ///
+ *                   / _/    \
+ *                   \/_\=[o=o]
+ *                    \_,    __)
+ *                     |     _\
+ *                     l______/
+ *                    /     :|
+ *                   /  \   ;|-
+ *                   \_______j
+ *                   ./.....\..
+ *
+ */
+
+</pre>
+
+    </div>
+
+    <div class="ide-settings">
+
+        <label>Phaser Version:</label>
+        <select id="ide-phaser-version">
+        <option value="2.9.4">2.9.4 - Phaser CE</option>
+<option value="2.9.3">2.9.3 - Phaser CE</option>
+<option value="2.9.2">2.9.2 - Phaser CE</option>
+<option value="2.9.1">2.9.1 - Phaser CE</option>
+<option value="2.9.0">2.9.0 - Phaser CE</option>
+<option value="2.8.8">2.8.8 - Phaser CE</option>
+<option value="2.8.7">2.8.7 - Phaser CE</option>
+<option value="2.8.6">2.8.6 - Phaser CE</option>
+<option value="2.8.5">2.8.5 - Phaser CE</option>
+<option value="2.8.4">2.8.4 - Phaser CE</option>
+<option value="2.8.3">2.8.3 - Phaser CE</option>
+<option value="2.8.2">2.8.2 - Phaser CE</option>
+<option value="2.8.1">2.8.1 - Phaser CE</option>
+<option value="2.8.0">2.8.0 - Phaser CE</option>
+<option value="2.7.10">2.7.10 - Phaser CE</option>
+<option value="2.7.9">2.7.9 - Phaser CE</option>
+<option value="2.7.8">2.7.8 - Phaser CE</option>
+<option value="2.7.7">2.7.7 - Phaser CE</option>
+<option value="2.7.6">2.7.6 - Phaser CE</option>
+<option value="2.7.5">2.7.5 - Phaser CE</option>
+<option value="2.7.4">2.7.4 - Phaser CE</option>
+<option value="2.7.3">2.7.3 - Phaser CE</option>
+<option value="2.7.2">2.7.2 - Phaser CE</option>
+<option value="2.7.1">2.7.1 - Phaser CE</option>
+<option value="2.7.0">2.7.0 - Phaser CE</option>
+<option value="2.6.2">2.6.2 - Kore Springs</option>
+<option value="2.6.1">2.6.1 - Caemlyn</option>
+<option value="2.6.0">2.6.0 - Fal Moran</option>
+<option value="2.5.0">2.5.0 - Five Kings</option>
+<option value="2.4.9">2.4.9 - Four Kings</option>
+<option value="2.4.8">2.4.8 - Watch Hill</option>
+<option value="2.4.7">2.4.7 - Hinderstap</option>
+<option value="2.4.6">2.4.6 - Baerlon</option>
+<option value="2.4.5">2.4.5 - Sienda</option>
+<option value="2.4.4">2.4.4 - Amador</option>
+<option value="2.4.3">2.4.3 - Coramen</option>
+<option value="2.4.2">2.4.2 - Altara</option>
+<option value="2.4.1">2.4.1 - Ionin Spring</option>
+<option value="2.4.0">2.4.0 - Katar</option>
+<option value="2.3.0">2.3.0 - Tarabon</option>
+<option value="2.2.2">2.2.2 - Alkindar</option>
+<option value="2.2.1">2.2.1 - Danabar</option>
+<option value="2.2.0">2.2.0 - Bethal</option>
+<option value="2.1.3">2.1.3 - Ravinda</option>
+<option value="2.1.2">2.1.2 - Whitebridge</option>
+<option value="2.1.1">2.1.1 - Eianrod</option>
+<option value="2.1.0">2.1.0 - Cairhien</option>
+<option value="2.0.7">2.0.7 - Amadicia</option>
+<option value="2.0.6">2.0.6 - Jornhill</option>
+<option value="2.0.5">2.0.5 - Tanchico</option>
+<option value="2.0.4">2.0.4 - Mos Shirare</option>
+<option value="2.0.3">2.0.3 - Allorallen</option>
+<option value="2.0.2">2.0.2 - Ghealdan</option>
+<option value="2.0.1">2.0.1 - Lyrelle</option>
+<option value="2.0.0">2.0.0 - Aes Sedai</option>
+<option value="1.1.6">1.1.6 - Shienar</option>
+<option value="1.1.5">1.1.5 - Saldaea</option>
+<option value="1.1.4">1.1.4 - Kandor</option>
+
+        </select>
+
+        <label>Theme:</label>
+        <select id="ide-theme">
+            <option value="ambiance">Ambiance</option>
+            <!-- <option value="amos">AMOS</option> -->
+            <option value="chaos">Chaos</option>
+            <option value="chrome">Chrome</option>
+            <option value="cloud9_day">Cloud9 Day</option>
+            <option value="cloud9_night">Cloud9 Night</option>
+            <option value="cloud9_night_low_color">Cloud9 Night Low Color</option>
+            <option value="clouds">Clouds</option>
+            <option value="clouds_midnight">Clouds Midnight</option>
+            <option value="cobalt">Cobalt</option>
+            <option value="crimson_editor">Crimson Editor</option>
+            <option value="dawn">Dawn</option>
+            <option value="dreamweaver">Dreamweaver</option>
+            <option value="eclipse">Eclipse</option>
+            <option value="github">Github</option>
+            <option value="idle_fingers">Idle Fingers</option>
+            <option value="katzenmilch">Katzenmilch</option>
+            <option value="kr_theme">KR</option>
+            <option value="kuroir">Kuroir</option>
+            <option value="merbivore">Merbivore</option>
+            <option value="merbivore_soft">Merbivore Soft</option>
+            <option value="mono_industrial">Mono Industrial</option>
+            <option value="monokai" selected="selected">Monokai</option>
+            <option value="pastel_on_dark">Pastel on Dark</option>
+            <option value="solarized_dark">Solarized Dark</option>
+            <option value="solarized_light">Solarized Light</option>
+            <option value="terminal">Terminal</option>
+            <option value="textmate">Textmate</option>
+            <option value="tomorrow">Tomorrow</option>
+            <option value="tomorrow_night">Tomorrow Night</option>
+            <option value="tomorrow_night_blue">Tomorrow Night Blue</option>
+            <option value="tomorrow_night_bright">Tomorrow Night Bright</option>
+            <option value="tomorrow_night_eighties">Tomorrow Night Eighties</option>
+            <option value="twilight">Twilight</option>
+            <option value="vibrant_ink">Vibrant Ink</option>
+            <option value="xcode">XCode</option>
+        </select>
+
+        <label>Font Size:</label>
+        <a id="ide-font-inc" class="btn"><span class="octicon octicon-plus"></span></a>
+        <a id="ide-font-dec" class="btn"><span class="octicon octicon-dash"></span></a>
+
+    </div>
+
+    <script>
+    $.getJSON('https://api.github.com/repos/photonstorm/phaser-examples/contents/examples/create/rat attack.js', function (data) {
+
+        editor.$blockScrolling = Infinity;
+        editor.setValue(atob(data.content));
+
+    });
+    </script>
+
+    <a name="download"></a>
+
+    <p><strong>View the code for this example:<br />
+    <a href="http://github.com/photonstorm/phaser-examples/blob/master/examples/create/rat attack.js">//github.com/photonstorm/phaser-examples/blob/master/examples/create/rat attack.js</a>.</strong></p>
+
+    
+    <h2>Download</h2>
+
+    <p>Get the source and assets for <em>every</em> Phaser example from the <a href="../../../../github.com/photonstorm/phaser-examples.html">Phaser Examples GitHub repository</a>.</p>
+
+    <ul class="generic-buttons">
+        <li><a href="../../../../github.com/photonstorm/phaser-examples.html" class="btn width100"><span class="octicon48 octicon-repo-clone"></span><p>clone</p></a></li>
+        <li><a href="https://github.com/photonstorm/phaser-examples/archive/master.zip" class="btn width100"><span class="octicon48 octicon-file-zip"></span><p>zip</p></a></li>
+        <li><a href="https://github.com/photonstorm/phaser-examples/archive/master.tar.gz" class="btn width100"><span class="octicon48 octicon-file-zip"></span><p>tar.gz</p></a></li>
+    </ul>
+
+    <p>With literally hundreds of pieces of source code this is an invaluable resource to have available locally.</p>
+
+    <h2>Online Code Editor</h2>
+
+    <p>The <a href="../../../sandbox.html">Phaser Sandbox</a> allows you to code games in your browser without having to download or install anything.</p>
+
+    <p>The powerful editor features Phaser code assists, JavaScript snippets and lots of the features you've come to love in editors like Sublime and Brackets.</p>
+
+
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer id="footer">
+                    <div class="holder">
+                        <img src="../../../images/img10.png" alt="rocketman" class="img-rocket">
+                        <div class="footer-info">
+                            <div class="site-rights">
+                                <strong class="logo"><a href="../../../../www.photonstorm.com/index.html">Photon Storm HTML5 Game Developers</a></strong>
+                                <span class="copyright">&copy; 2018 Photon Storm Ltd.</span>
+                                <p>All rights reserved.</p>
+                            </div>
+                            <div class="footer-links">
+                                <p><a href="../../../download/stable.html">Get Phaser 2.9.4</a><br />
+                                <a href="https://phaser.io/docs">API Docs</a><br />
+                                <a href="../../../community/donate.html">Donate to the Project</a></p>
+                            </div>
+                        </div>
+                        <ul class="social-links">
+                            <li><a href="../../../../www.html5gamedevs.com/forum/14-phaser/index.html">Phaser Forums</a></li>
+                            <li class="twitter"><a href="../../../../twitter.com/phaser_.html">@phaser_</a></li>
+                            <li class="github"><a href="../../../../github.com/photonstorm/phaser.html">Phaser on Github</a></li>
+                        </ul>
+                    </div>
+                </footer>
+
+        <!-- container -->
+        </div>
+
+    <!-- wrapper -->
+    </div>
+
+    <script async defer src="../../../../buttons.github.io/buttons.js"></script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','../../../../www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-44006568-1', 'auto');
+        ga('require', 'linkid', 'https://phaser.io/examples/v2/create/linkid.js');
+        ga('send', 'pageview');
+
+        var trackOutboundLink = function(url) {
+            ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+            function () {
+                document.location = url;
+            }
+        });
+    }
+    </script>
+
+    <!-- The best way to predict the future is to create it -->
+
+    </body>
+
+<!-- Mirrored from phaser.io/examples/v2/create/rat-attack by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Jan 2018 01:49:48 GMT -->
+</html>
