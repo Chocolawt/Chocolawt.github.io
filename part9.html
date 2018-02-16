@@ -118,7 +118,7 @@ function collectStar (player, star) {
     scoreText.text = 'Score: ' + score;
 }
 function restart {
- if (this.score=0) {
+ if (this.score<120) {
 	 this.game.state.restart();
               this.game.state.start('game_over');
 	 
