@@ -78,8 +78,16 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     
-        button = game.add.button(game.world.centerX - 95, 400, 'button');
-
+    button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this);
+	
+	button.onInputOver.add(restart, this);
+	
+    function restart() {
+    console.log('button up', arguments);
+}
+function actionOnClick () {
+	game.restart
+}
 
 function update() {
     //  Collide the player and the stars with the platforms
