@@ -79,8 +79,12 @@ function create() {
     cursors = game.input.keyboard.createCursorKeys();
     
     button = game.add.button(game.world.centerX - 95, 400, 'button');	
-	game.input.onDown.add(this.restartGame, this);
+	game.input.onDown.add(restartGame, this);
 }
+	function restartGame() {
+		game.restart();
+	}
+		
 function update() {
     //  Collide the player and the stars with the platforms
     game.physics.arcade.collide(player, platforms);
