@@ -78,8 +78,9 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     
-    button = game.add.button(game.world.centerX - 400, 400, 'button');	
-     this.game.state.restart()
+    button = game.add.button(game.world.centerX - 400, 400, 'button' actionOnClick, this, 2, 1, 0);
+);	
+
 }
 
 function update() {
