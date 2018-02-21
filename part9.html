@@ -27,16 +27,6 @@ var stars;
 var score = 0;
 var scoreText;
 	
-function create() {
-
-    game.stage.backgroundColor = '#182d3b';
-
-    background = game.add.tileSprite(0, 0, 800, 600, 'background');
-
-    button = game.add.button(game.world.centerX - 95, 400, 'button');
-
-
-}
 	
 function create() {
     //  We're going to be using physics, so enable the Arcade Physics system
@@ -88,6 +78,7 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     
+    button = game.add.button(game.world.centerX - 95, 400, 'button');	
 }
 function update() {
     //  Collide the player and the stars with the platforms
