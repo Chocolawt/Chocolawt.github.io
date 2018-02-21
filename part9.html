@@ -25,6 +25,18 @@ var cursors;
 var stars;
 var score = 0;
 var scoreText;
+	
+function create() {
+
+    game.stage.backgroundColor = '#182d3b';
+
+    background = game.add.tileSprite(0, 0, 800, 600, 'background');
+
+    button = game.add.button(game.world.centerX - 95, 400, 'button', actionOnClick, this, 2, 1, 0);
+
+
+}
+	
 function create() {
     //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -116,14 +128,6 @@ function collectStar (player, star) {
     //  Add and update the score
     score += 10;
     scoreText.text = 'Score: ' + score;
-}
-function restart {
- if (this.score<120) {
-	 this.game.state.restart();
-              this.game.state.start('game_over');
-	 
- }
-	
 }
 	
 </script>
