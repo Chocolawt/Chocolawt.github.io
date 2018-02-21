@@ -1,0 +1,28 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+<script type="text/javascript">
+var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+function preload() {
+    game.load.spritesheet('button', 'assets/button.png', 200, 200);
+}
+var button; 
+function create {
+  button = game.add.button(game.world.centerX - 400, 400, 'button');	
+}
+</script>
+
+</body>
+</html>
