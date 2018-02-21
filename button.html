@@ -17,6 +17,7 @@
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
 function preload() {
     game.load.spritesheet('button', 'assets/button.png', 200, 200);
+	game.load.image('sky', 'assets/galaxy.jpg');
 }
 var button; 
 function create {
