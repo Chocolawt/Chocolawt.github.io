@@ -37,9 +37,9 @@ function create() {
 
 }
 
-   button.onInputOver.add(over, this);
+   button.onInputOver.add(this.restartGame, this);
     button.onInputOut.add(out, this);
-    button.onInputUp.add(this.restartGame, this);
+    button.onInputUp.add(up, this);
 
 }
 
@@ -51,7 +51,7 @@ function over() {
     console.log('button over');
 }
 
-function out() {
+function this() {
     console.log('button out');
 }
 
