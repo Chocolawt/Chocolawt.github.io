@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Phaser - Making your first game, part 9</title>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
+    <style type="text/css">
+    body {
+        margin: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript">
+var menuState = {
+create: function() {
+ var nameLabel = game.add.text (80, 80, 'My First Game , 
+  {font: '50px Arial' fill: #ffffff});
+  
+  var starLabel = game.add.text(80, game.world.height-80, 'press the "W" key to start'
+  {font: '25px Arial, fill: #ffffff' });
+  
+  var wkey = game.input.keyboard.addKey (Phaser.Keyboard.W);
+  wKey.onDown.addOnce(this.start, this); },
+    </script>
+</body>
+
+</html>
