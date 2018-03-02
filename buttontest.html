@@ -37,7 +37,7 @@ function create() {
 
 }
 
-   button.onInputOver.add(over, this);
+    button.onInputOver.add(over, this);
     button.onInputOut.add(out, this);
     button.onInputUp.add(up, this);
 
@@ -58,9 +58,9 @@ function out() {
 
 function actionOnClick () {
 
-     this.game.state.remove(this.game.state.current);
-              this.game.state.start('game_over');
-     //background.visible =! background=visible;
+     //this.game.state.remove(this.game.state.current);
+              //this.game.state.start('game_over');
+     background.visible =! background=visible;
 
 }
     </script>
