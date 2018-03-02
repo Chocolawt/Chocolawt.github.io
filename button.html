@@ -15,13 +15,25 @@
 
 <script type="text/javascript">
 var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
-function preload() {
+var button;
+	function preload() {
     game.load.spritesheet('button', 'assets/button.png', 200, 200);
 	game.load.image('sky', 'assets/galaxy.jpg');
 }
-var button; 
-function create {
-  button = game.add.button(game.world.centerX - 400, 400, 'button');	
+	function create() {
+	background = game.add.tileSprite(0, 0, 800, 600, 'background');
+
+    button = game.add.button(game.world.centerX - 95, 400, 'button', onUp, this, 2, 1, 0);	
+	}
+	function onUp(button, pointer, isOver) {
+
+    //  In this example if the Pointer is no longer over the Button, then we'll treat it
+    //  as if the user cancelled the operation and didn't want to press the Button after all
+
+    if (isOver)
+    {
+         game.input.onDown.add(this.restartGame, this);
+    }
 }
 </script>
 
