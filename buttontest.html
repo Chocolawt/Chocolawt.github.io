@@ -37,7 +37,7 @@ function create() {
 
 }
 
-   button.onInputOver.add(this.restartGame, this);
+   button.onInputOver.add(over, this);
     button.onInputOut.add(out, this);
     button.onInputUp.add(up, this);
 
@@ -58,7 +58,8 @@ function this() {
 
 function actionOnClick () {
 
-    game.state.start('Play')
+     this.game.state.restart();
+             this.game.state.start('game_over');
 
 }
     </script>
